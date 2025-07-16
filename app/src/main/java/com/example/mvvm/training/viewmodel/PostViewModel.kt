@@ -14,7 +14,6 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-// UI State data class
 data class PostUiState(
     val posts: List<Post> = emptyList(),
     val isLoading: Boolean = false,
@@ -23,7 +22,7 @@ data class PostUiState(
 
 @HiltViewModel
 class PostViewModel @Inject constructor(
-    private val postRepository: PostRepository // Inject Repository directly
+    private val postRepository: PostRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(PostUiState())

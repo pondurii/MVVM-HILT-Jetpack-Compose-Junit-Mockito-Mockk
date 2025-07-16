@@ -14,11 +14,20 @@ class PostRepositoryImpl @Inject constructor(
     private val apiService: ApiService
 ) : PostRepository {
     override fun getPosts(): Flow<Result<List<Post>>> = flow {
-        try {
+
+        /*try {
             val posts = apiService.getPosts()
             emit(Result.success(posts))
         } catch (e: Exception) {
             emit(Result.failure(e))
+        }*/
+
+        val result = try {
+            val posts = apiService.getPosts()
+            Result.success(posts)
+        } catch (e: Exception) {
+            Result.failure(e)
         }
+        emit(result)
     }
 }
