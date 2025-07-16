@@ -1,4 +1,4 @@
-package com.example.mvvm.training.ui.theme
+package com.example.mvvm.training.view.ui.theme
 
 import android.app.Activity
 import android.os.Build
