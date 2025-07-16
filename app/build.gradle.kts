@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -56,4 +58,29 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+
+    implementation(libs.androidx.navigation.compose)
+
+    //Hilt
+    ksp(libs.dagger.compiler)
+    implementation(libs.dagger.hilt.android)
+    ksp(libs.dagger.hilt.android.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
+    implementation(libs.okhttp)
+
+    //coil
+    implementation(libs.coil.compose)
+
+    //unit test cases
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+    testImplementation("org.mockito:mockito-core:5.2.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.2.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
+    testImplementation("org.mockito:mockito-junit-jupiter:5.12.0")
 }
